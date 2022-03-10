@@ -61,24 +61,26 @@ for(let i = 0; i <multimedia.length; i++){
     
     photo.innerHTML+=
     `
-    <img class="my-img" src="img/${multimedia[i].image}" alt="${multimedia[i].nome}">
+    <img class="my-img" src="img/${multimedia[i].image}" alt="${multimedia[i].name}"> 
     `;  
     
     preview.innerHTML += 
     `
+    
     <img class="dom-preview" src="img/${multimedia[i].image}" alt="${multimedia[i].nome}">
     `; 
 } 
 
 let activeElement= 0;
 document.getElementsByClassName("my-img")[activeElement].classList.add("active");
-document.getElementsByClassName("dom-preview")[activeElement].classList.add("active"); 
+document.getElementsByClassName("dom-preview")[activeElement].classList.add("border"); 
 
-const nextOne = document.querySelector("span.my-prev-hook"); 
+const nextOne = document.querySelector("div.my-previous"); 
 
-nextOne.addEventListener("click", function(){
+nextOne.addEventListener("click", function(){ 
+    
     document.getElementsByClassName("my-img")[activeElement].classList.remove("active"); 
-    document.getElementsByClassName("dom-preview")[activeElement].classList.remove("active"); 
+    document.getElementsByClassName("dom-preview")[activeElement].classList.remove("border"); 
 
     if(activeElement === 0){
         activeElement= multimedia.length -1; 
@@ -87,14 +89,14 @@ nextOne.addEventListener("click", function(){
     }; 
 
     document.getElementsByClassName("my-img")[activeElement].classList.add("active"); 
-    document.getElementsByClassName("dom-preview")[activeElement].classList.add("active");
+    document.getElementsByClassName("dom-preview")[activeElement].classList.add("border");
 }); 
 
-const fewer = document.querySelector("span.my-next-hook");  
+const fewer = document.querySelector("div.my-next");  
 
 fewer.addEventListener("click", function() {
     document.getElementsByClassName("my-img")[activeElement].classList.remove("active"); 
-    document.getElementsByClassName("dom-preview")[activeElement].classList.remove("active"); 
+    document.getElementsByClassName("dom-preview")[activeElement].classList.remove("border"); 
    
 
     if( activeElement === multimedia.length -1){
@@ -104,8 +106,32 @@ fewer.addEventListener("click", function() {
     }
     
     document.getElementsByClassName("my-img")[activeElement].classList.add("active");
-    document.getElementsByClassName("dom-preview")[activeElement].classList.add("active");
+    document.getElementsByClassName("dom-preview")[activeElement].classList.add("border");
+      
+});   
+
+
+
+
+ setInterval (next, 1500);
+
+
+function next(){ 
     
-});  
+    document.getElementsByClassName("my-img")[activeElement].classList.remove("active");
+	document.getElementsByClassName("dom-preview")[activeElement].classList.remove("border");
+	
+	if ( activeElement === multimedia.length - 1 ){
+		activeItem = 0;
+	} else {
+		activeElement++;
+	}
+	document.getElementsByClassName("my-img")[activeElement].classList.add("active");
+	document.getElementsByClassName("dom-preview")[activeElement].classList.add("border");
+	
+}; 
+
+
+
 
 
