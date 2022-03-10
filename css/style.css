@@ -10,7 +10,7 @@ div.my-carousel-container{
 
 div.my-carousel-images{
     background-color: cadetblue;
-    min-height: 540px;
+    min-height: 500px;
 }
 
 div.my-thumbnails{
@@ -51,4 +51,9 @@ div.my-next > span::after{
     font-weight: 900;
     content: "\f0a9";
     line-height: 30px;
+} 
+
+.my-img{
+    height: 100px;
+    object-fit: contain;
 }

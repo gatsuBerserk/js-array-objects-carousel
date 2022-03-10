@@ -18,38 +18,47 @@ E se volessi un bottone per invertire la "direzione" del carosello?
  */ 
 
 // Inizializzo Array Oggetti 
-const image = [
+const multimedia = [
     {
-        nome : "Four elements",
-        descrizione : "Life",
-        image : "146108.jpg",
+        name : "Four elements",
+        description : "Life",
+        image : "146108.jpg", 
+
     },
 
     {
-        nome : "Color",
+        name : "Color",
         descrizione : "Beautiful",
         image : "271342.jpg",
     },
 
     {
-        nome : "Nature",
-        descrizione : "We respect",
-        image : "nature-5325442_960_720.jpg",
+        name : "Nature",
+        description : "We respect",
+        image : "nature-5325442_960_720.jpg", 
+        
     },
 
     {
-        nome : "Reflect",
-        descrizione : "Moments",
+        name : "Reflect",
+        description: "Moments",
         image : "pexels-photo-1323550.jpeg",
     },
 
     {
-        nome : "Island in the sky",
-        descrizione : "Sky and sea merge",
+        name : "Island in the sky",
+        description: "Sky and sea merge",
         image : "sunset-3087145_960_720.jpg",
     },
 
 ];
 
 const title = document.getElementById("my-before-carousel");  
-title.innerHTML=`<h1> GO VEGAN  <h1>`; 
+title.innerHTML=`<h1> GO VEGAN  <h1>`;  
+const photo= document.querySelector("div.my-carousel-images");
+for(let i = 0; i <multimedia.length; i++){
+    photo.innerHTML+=
+    `
+    <img class="my-img" src="img/${multimedia[i].image}" alt="${multimedia[i].nome}">
+    `; 
+}
