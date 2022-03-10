@@ -9,8 +9,8 @@ div.my-carousel-container{
 }
 
 div.my-carousel-images{
-    background-color: cadetblue;
-    min-height: 500px;
+    background-color: cadetblue; 
+    min-height: 500px; 
 }
 
 div.my-thumbnails{
@@ -54,6 +54,15 @@ div.my-next > span::after{
 } 
 
 .my-img{
-    height: 100px;
-    object-fit: contain;
+ height: 100px; 
+ display: none;   
+}  
+
+.dom-preview{
+    height: 120px;
+    display: none;
+}
+
+.active{
+    display: block;
 }

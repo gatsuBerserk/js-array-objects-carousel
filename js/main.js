@@ -55,10 +55,57 @@ const multimedia = [
 
 const title = document.getElementById("my-before-carousel");  
 title.innerHTML=`<h1> GO VEGAN  <h1>`;  
-const photo= document.querySelector("div.my-carousel-images");
-for(let i = 0; i <multimedia.length; i++){
+const photo = document.querySelector("div.my-carousel-images"); 
+const preview = document.querySelector("div.my-thumbnails"); 
+for(let i = 0; i <multimedia.length; i++){ 
+    
     photo.innerHTML+=
     `
     <img class="my-img" src="img/${multimedia[i].image}" alt="${multimedia[i].nome}">
+    `;  
+    
+    preview.innerHTML += 
+    `
+    <img class="dom-preview" src="img/${multimedia[i].image}" alt="${multimedia[i].nome}">
     `; 
-}
+} 
+
+let activeElement= 0;
+document.getElementsByClassName("my-img")[activeElement].classList.add("active");
+document.getElementsByClassName("dom-preview")[activeElement].classList.add("active"); 
+
+const nextOne = document.querySelector("span.my-prev-hook"); 
+
+nextOne.addEventListener("click", function(){
+    document.getElementsByClassName("my-img")[activeElement].classList.remove("active"); 
+    document.getElementsByClassName("dom-preview")[activeElement].classList.remove("active"); 
+
+    if(activeElement === 0){
+        activeElement= multimedia.length -1; 
+    }else{
+        activeElement--;
+    }; 
+
+    document.getElementsByClassName("my-img")[activeElement].classList.add("active"); 
+    document.getElementsByClassName("dom-preview")[activeElement].classList.add("active");
+}); 
+
+const fewer = document.querySelector("span.my-next-hook");  
+
+fewer.addEventListener("click", function() {
+    document.getElementsByClassName("my-img")[activeElement].classList.remove("active"); 
+    document.getElementsByClassName("dom-preview")[activeElement].classList.remove("active"); 
+   
+
+    if( activeElement === multimedia.length -1){
+        activeElement= 0;
+    }else{
+        activeElement++;
+    }
+    
+    document.getElementsByClassName("my-img")[activeElement].classList.add("active");
+    document.getElementsByClassName("dom-preview")[activeElement].classList.add("active");
+    
+});  
+
+
