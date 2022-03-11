@@ -69,7 +69,7 @@ width: 100%;
 .active{
     display: block;
 } 
- .border{
+ .filter{
     filter:blur(5px);
  } 
  

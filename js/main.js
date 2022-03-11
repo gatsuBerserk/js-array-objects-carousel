@@ -73,14 +73,14 @@ for(let i = 0; i <multimedia.length; i++){
 
 let activeElement= 0;
 document.getElementsByClassName("my-img")[activeElement].classList.add("active");
-document.getElementsByClassName("dom-preview")[activeElement].classList.add("border"); 
+document.getElementsByClassName("dom-preview")[activeElement].classList.add("filter"); 
 
 const nextOne = document.querySelector("div.my-previous"); 
 
 nextOne.addEventListener("click", function(){ 
     
     document.getElementsByClassName("my-img")[activeElement].classList.remove("active"); 
-    document.getElementsByClassName("dom-preview")[activeElement].classList.remove("border"); 
+    document.getElementsByClassName("dom-preview")[activeElement].classList.remove("filter"); 
 
     if(activeElement === 0){
         activeElement= multimedia.length -1; 
@@ -89,14 +89,14 @@ nextOne.addEventListener("click", function(){
     }; 
 
     document.getElementsByClassName("my-img")[activeElement].classList.add("active"); 
-    document.getElementsByClassName("dom-preview")[activeElement].classList.add("border");
+    document.getElementsByClassName("dom-preview")[activeElement].classList.add("filter");
 }); 
 
 const fewer = document.querySelector("div.my-next");  
 
 fewer.addEventListener("click", function() {
     document.getElementsByClassName("my-img")[activeElement].classList.remove("active"); 
-    document.getElementsByClassName("dom-preview")[activeElement].classList.remove("border"); 
+    document.getElementsByClassName("dom-preview")[activeElement].classList.remove("filter"); 
    
 
     if( activeElement === multimedia.length -1){
@@ -106,7 +106,7 @@ fewer.addEventListener("click", function() {
     }
     
     document.getElementsByClassName("my-img")[activeElement].classList.add("active");
-    document.getElementsByClassName("dom-preview")[activeElement].classList.add("border");
+    document.getElementsByClassName("dom-preview")[activeElement].classList.add("filter");
       
 });   
 
@@ -119,7 +119,7 @@ fewer.addEventListener("click", function() {
 function next(){ 
     
     document.getElementsByClassName("my-img")[activeElement].classList.remove("active");
-	document.getElementsByClassName("dom-preview")[activeElement].classList.remove("border");
+	document.getElementsByClassName("dom-preview")[activeElement].classList.remove("filter");
 	
 	if ( activeElement === multimedia.length - 1 ){
 		activeItem = 0;
@@ -127,7 +127,7 @@ function next(){
 		activeElement++;
 	}
 	document.getElementsByClassName("my-img")[activeElement].classList.add("active");
-	document.getElementsByClassName("dom-preview")[activeElement].classList.add("border");
+	document.getElementsByClassName("dom-preview")[activeElement].classList.add("filter");
 	
 }; 
 
